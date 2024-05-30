@@ -4,7 +4,6 @@ from dash import html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 import pandas as pd
-import geopandas as gpd
 import plotly.graph_objs as go
 from prophet import Prophet
 from prophet.plot import plot_plotly, plot_components_plotly
@@ -12,7 +11,7 @@ from prophet.plot import plot_plotly, plot_components_plotly
 app = dash.Dash(external_stylesheets=[dbc.themes.SKETCHY])
 server = app.server
 
-df_sequia= pd.read_excel('data/Municipios_con_ sequia.xlsx', sheet_name=2)
+df_sequia= pd.read_excel('Municipios_con_ sequia.xlsx', sheet_name=2)
 columnas_fechas= list(df_sequia.columns[9:])
 df_sequia= df_sequia[ ['CVE_CONCATENADA','CVE_ENT','CVE_MUN','NOMBRE_MUN','ENTIDAD'] + columnas_fechas]
 df_sequia= df_sequia.melt(id_vars=['CVE_CONCATENADA','CVE_ENT','CVE_MUN','NOMBRE_MUN','ENTIDAD'], var_name='Fecha', value_name='Sequia')
