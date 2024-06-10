@@ -79,6 +79,9 @@ Como inputs, se usó un dataset de imágenes de zonas inundadas de [Kaggle](http
 
 Con base en esto, se realizó un modelo de Segmentación de Imágenes DeepLabV3 con TensorFlow para identificar las zonas inundadas en una imagen.
 
+![Segmentación de Imágenes](docs/floods1.png)
+![Segmentación de Imágenes](docs/floods2.png)
+
 ## 📂Estructura de carpetas
 
 ```bash
