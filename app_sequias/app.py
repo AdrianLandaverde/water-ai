@@ -9,7 +9,7 @@ import plotly.graph_objs as go
 from prophet import Prophet
 from prophet.plot import plot_plotly, plot_components_plotly
 
-app = dash.Dash(external_stylesheets=[dbc.themes.SKETCHY])
+app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 server = app.server
 
 df_sequia= pd.read_excel('data/Municipios_con_ sequia.xlsx', sheet_name=2)
@@ -27,7 +27,7 @@ df_sequia_estado['Fecha']= pd.to_datetime(df_sequia_estado['anio'].astype(str) +
 
 app.layout = dbc.Col([
     
-    html.H1('Pronóstico de sequías', style={'text-align': 'center'}),
+    html.H1('Droughts Forecast', style={'text-align': 'center'}),
     
     dbc.Select(
         id='input-state',
@@ -36,11 +36,11 @@ app.layout = dbc.Col([
         style={'margin-top': '10px'}
     ),
     
-    html.H3('Pronóstico de sequías', style={'text-align': 'center', 'margin-top': '30px'}),
+    html.H3('Droughts Forecast', style={'text-align': 'center', 'margin-top': '30px'}),
     
     dcc.Loading( type='graph', children=[dcc.Graph(id='forecast-droughts')]),
     
-    html.H3('Componentes de la sequía', style={'text-align': 'center', 'margin-top': '30px'}),
+    html.H3('Droughts components', style={'text-align': 'center', 'margin-top': '30px'}),
     
     dcc.Loading( type='graph', children=[dcc.Graph(id='components-droughts')])
     
